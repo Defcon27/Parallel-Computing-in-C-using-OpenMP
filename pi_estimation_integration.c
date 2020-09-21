@@ -13,7 +13,7 @@ int main()
     dx = 1.0 / (double)iters;
     x = dx;
 
-	#pragma omp parallel for schedule(dynamic) reduction(+: area) private(x, y, i, dx)
+    #pragma omp parallel for schedule(dynamic) reduction(+: area) private(x, y, i, dx)
     for (i = 1; i < iters; i++)
     {
         dx = 1.0 / (double)iters;
