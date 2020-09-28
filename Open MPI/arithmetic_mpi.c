@@ -9,21 +9,31 @@ int main(int argc, char **argv)
     
     MPI_Init(&argc, &argv);
     MPI_Comm_rank(MPI_COMM_WORLD, &rank);
-    MPI_Comm_size(MPI_COMM_WORLD, &size);
-    printf("Hello World from rankID %d  Total-%d",rank,size);
-    
+    MPI_Comm_size(MPI_COMM_WORLD, &size);    
     if (rank==0){
-		int a=10;
-		int b=20;
-		int c=a+b;
-		printf("Sum from Rank_id:%d is %d",c,rank);
-	}
-	else if (rank==1){
-		int x=15;
-		int y=7;
-		int z=x*y;
-		printf("Product from Rank_id:%d is %d",z,rank);
-	}
+	int a=10;
+	int b=20;
+	int c=a+b;
+	printf("\nSum from Rank_id-%d is %d\n",rank,c);
+    }
+    else if (rank==1){
+	int a=15;
+	int b=7;
+	int c=a-b;
+	printf("\nSubtraction from Rank_id-%d is %d\n",rank,c);
+    }
+    else if (rank==2){
+	int x=12;
+	int y=7;
+	int z=x*y;
+	printf("\nMultiplication from Rank_id-%d is %d\n",rank,z);
+    }
+    else if (rank==3){
+	float x=16;
+	float y=3;
+	float z=x/y;
+	printf("\nDivision from Rank_id-%d is %f\n",rank,z);
+    }
     
     MPI_Finalize();
     return 0;
